@@ -3,17 +3,24 @@ import urllib.request
 from bs4 import BeautifulSoup
 import os
 
-url = "https://www.youtube.com/results?search_query="
+#create url
+base_url = "https://www.youtube.com/results?search_query="
 url_file = open("url.txt","r")
-url = url_file.readline()
+url = base_url + url_file.readline();
 
+#create soup object
 page = urllib.request.urlopen(url)
 html = page.read()
 soup = BeautifulSoup(html, 'html.parser')
 
-print ("\nTitle of the page is " + soup.title.string)
+
+#parse
+print(soup.title.string)
+#print ("\nTitle of the page is " + soup.title.string)
 os.system("pause")
 
+
+#output to text file
 
 
 
